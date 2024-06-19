@@ -1,32 +1,27 @@
+logging:
+  level:
+    org.springframework: ERROR
+
 spring:
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
-    password:  ${DATABASE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    password: ${DATABASE_PASSWORD}
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  security:
-    oauth2:
-      client:
-        provider:
-          kakao:
-            authorization-uri: https://kauth.kakao.com/oauth/authorize
-            token-uri: https://kauth.kakao.com/oauth/token
-            user-info-uri: https://kapi.kakao.com/v2/user/me
-            user-name-attribute: id
-        registration:
-          kakao:
-            client-id: ${KAKAO_CLIENT_ID}
-            client-secret: ${KAKAO_SECRET}
-            client-authentication-method: client_secret_post
-            redirect-uri: http://localhost:8080/login/kakao_auth
-            authorization-grant-type: authorization_code
-            client-name: kakao
-            scope:
-              - profile_nickname
-              - profile_image
+        format_sql: true
+        use_sql_comments: true
+        highlight_sql: true
+
+
+oauth:
+  kakao:
+    client-id: ${KAKAO_CLIENT_ID}
+    redirect_uri: http://localhost:3000/oauth/redirected/kakao
+    client-secret: ${KAKAO_SECRET}
+    scope: profile_nickname, profile_image

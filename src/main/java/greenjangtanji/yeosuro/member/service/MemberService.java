@@ -1,5 +1,6 @@
 package greenjangtanji.yeosuro.member.service;
 
+import greenjangtanji.yeosuro.member.dto.MemberRequestDto;
 import greenjangtanji.yeosuro.member.entity.Member;
 import greenjangtanji.yeosuro.member.repostory.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    public Member createUser(String username) {
+    public Member createUser(MemberRequestDto.Post postDto) {
         Member user = new Member();
-        user.setUsername(username);
+        user.setUsername(postDto.getUsername());
+        user.setPassword(postDto.getPassword());
+
         return memberRepository.save(user);
     }
 }
