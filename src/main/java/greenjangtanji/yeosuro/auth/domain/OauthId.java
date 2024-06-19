@@ -9,8 +9,6 @@ import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-
-
 @Embeddable
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
