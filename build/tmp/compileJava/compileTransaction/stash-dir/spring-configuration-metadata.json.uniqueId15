@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "oauth.kakao",
+      "type": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig",
+      "sourceType": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "oauth.kakao.client-id",
+      "type": "java.lang.String",
+      "sourceType": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig"
+    },
+    {
+      "name": "oauth.kakao.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig"
+    },
+    {
+      "name": "oauth.kakao.redirect-uri",
+      "type": "java.lang.String",
+      "sourceType": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig"
+    },
+    {
+      "name": "oauth.kakao.scope",
+      "type": "java.lang.String[]",
+      "sourceType": "greenjangtanji.yeosuro.auth.infra.kakao.KakaoOauthConfig"
+    }
+  ],
+  "hints": []
+}

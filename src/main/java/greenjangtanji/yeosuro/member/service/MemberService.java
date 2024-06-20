@@ -2,21 +2,23 @@ package greenjangtanji.yeosuro.member.service;
 
 import greenjangtanji.yeosuro.member.dto.MemberRequestDto;
 import greenjangtanji.yeosuro.member.entity.Member;
+import greenjangtanji.yeosuro.member.entity.MemberAuthorize;
+import greenjangtanji.yeosuro.member.entity.MemberStatus;
 import greenjangtanji.yeosuro.member.repostory.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class MemberService {
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     public Member createUser(MemberRequestDto.Post postDto) {
-        Member user = new Member();
-        user.setUsername(postDto.getUsername());
-        user.setPassword(postDto.getPassword());
+       Member member = Member.createMember(postDto);
 
-        return memberRepository.save(user);
+        return memberRepository.save(member);
     }
 }

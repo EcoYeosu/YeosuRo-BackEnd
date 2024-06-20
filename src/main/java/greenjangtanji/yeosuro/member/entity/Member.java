@@ -1,6 +1,7 @@
 package greenjangtanji.yeosuro.member.entity;
 
 import greenjangtanji.yeosuro.feed.entity.Feed;
+import greenjangtanji.yeosuro.member.dto.MemberRequestDto;
 import greenjangtanji.yeosuro.reply.entity.Reply;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -14,7 +15,6 @@ import java.util.List;
 
 @NoArgsConstructor
 @Getter
-@Setter
 @Entity
 @Table(name = "member")
 public class Member {
@@ -50,13 +50,16 @@ public class Member {
     private List<Reply> replies = new ArrayList<>();
 
 
-    @Builder
-    public Member (Long id,String email, String username, String password, String agree){
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.agree = agree;
+
+    public static Member createMember (MemberRequestDto.Post requestDto){
+        Member member = new Member();
+        member.email = requestDto.getEmail();
+        member.username = requestDto.getUsername();
+        member.password = requestDto.getPassword();
+        member.agree = requestDto.getAgree();
+        member.status = MemberStatus.ACTIVE;
+        member.authorize = MemberAuthorize.USER;
+        return member;
     }
 
     public void updateMember (String username, String userImageUrl){

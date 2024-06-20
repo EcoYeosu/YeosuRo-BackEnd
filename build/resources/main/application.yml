@@ -1,15 +1,12 @@
 logging:
-  file:
-    name: logs/yeosuro.log
   level:
-    org.springframework: TRACE
+    org.springframework: ERROR
 
 spring:
   datasource:
-    url: jdbc:postgresql://43.203.243.61:5432/mydb
-    username: postgres
-    password:  1234
-    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
@@ -24,7 +21,7 @@ spring:
 
 oauth:
   kakao:
-    client_id: ada60610891f2488da21da05453827dc # REST API 키
+    client-id: ${KAKAO_CLIENT_ID}
     redirect_uri: http://localhost:3000/oauth/redirected/kakao
-    client_secret: rmwXJpQPmnjh6v87JPrMDwj3ShNJZeyq # Client Secret 키
+    client-secret: ${KAKAO_SECRET}
     scope: profile_nickname, profile_image

@@ -1,6 +1,5 @@
 package greenjangtanji.yeosuro.member.dto;
 
-import greenjangtanji.yeosuro.member.entity.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +13,10 @@ public class MemberRequestDto {
         private String agree;
     }
 
-    @Getter
-    @NoArgsConstructor
-    public static class Patch {
-        private String username;
-        private String userImageUrl;
-    }
+//    @Getter
+//    @NoArgsConstructor
+//    public static class Patch {
+//        private String username;
+//        private String userImageUrl;
+//    }
 }
