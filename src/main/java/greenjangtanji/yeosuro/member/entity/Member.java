@@ -48,8 +48,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private List<Reply> replies = new ArrayList<>();
-
-
+    
 
     public static Member createMember (MemberRequestDto.Post requestDto){
         Member member = new Member();
