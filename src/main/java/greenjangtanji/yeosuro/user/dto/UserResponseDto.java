@@ -1,7 +1,5 @@
 package greenjangtanji.yeosuro.user.dto;
 import greenjangtanji.yeosuro.user.entity.User;
-import greenjangtanji.yeosuro.user.repostory.UserRepository;
-import greenjangtanji.yeosuro.user.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,11 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserResponseDto {
 
-    //private static UserService userService;
-
     @Getter
     @NoArgsConstructor
-    public static class DetailUserInfo {
+    public static class DetailUserInfo{
         private Long id;
         private String email;
         private String password;
@@ -33,22 +29,17 @@ public class UserResponseDto {
         }
     }
 
-
     @Getter
     @NoArgsConstructor
     public static class BriefUserInfo {
         private Long id;
         private String nickname;
         private String profileImageUrl;
-        private int totalPoint;
-        private String tier;
 
         public BriefUserInfo (User user){
             this.id = user.getId();
             this.nickname = user.getNickname();
             this.profileImageUrl = user.getProfileImageUrl();
-            this.totalPoint = user.getTotalPoint();
-            //this.tier =
         }
     }
 }
